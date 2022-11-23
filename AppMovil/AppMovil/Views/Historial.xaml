@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMovil.Views.Historial"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:ViewModel;assembly=ViewModel">
+    <ContentPage.BindingContext>
+        <viewModel:HistorialViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Seleccione una fecha para ver el historial" />
+            <DatePicker Date="{Binding Fecha}" MinimumDate="2020,01,01" />
+            <Button
+                Margin="10"
+                Command="{Binding BusquedaCommand}"
+                Text="Buscar" />
+            <CollectionView ItemsSource="{Binding Ventas}">
+                <CollectionView.Header>
+                    <Grid ColumnDefinitions="1*,1*,1*,1*,1*">
+                        <Label
+                            Grid.Column="0"
+                            FontSize="12"
+                            Text="ID"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Column="1"
+                            FontSize="12"
+                            Text="Fecha"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Column="2"
+                            FontSize="12"
+                            Text="Cantidad"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Column="3"
+                            FontSize="12"
+                            Text="Producto"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Column="4"
+                            FontSize="12"
+                            Text="Total"
+                            TextColor="Black" />
+                    </Grid>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="1*,1*,1*,1*,1*">
+                            <Label
+                                Grid.Column="0"
+                                FontSize="12"
+                                HorizontalOptions="Fill"
+                                Text="{Binding venta_id}"
+                                TextColor="red" />
+                            <Label
+                                Grid.Column="1"
+                                FontSize="12"
+                                HorizontalOptions="Fill"
+                                Text="{Binding fecha_venta}"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="12"
+                                HorizontalOptions="Fill"
+                                Text="{Binding cantidad}"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Column="3"
+                                FontSize="12"
+                                HorizontalOptions="Fill"
+                                Text="{Binding producto.Producto_id}"
+                                TextColor="Black" />
+                            <Label
+                                Grid.Column="4"
+                                FontSize="12"
+                                HorizontalOptions="Fill"
+                                Text="{Binding total_venta, StringFormat='{0:C}'}"
+                                TextColor="Black" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
