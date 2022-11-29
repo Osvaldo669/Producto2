@@ -16,7 +16,8 @@
             <DatePicker
                 Margin="10"
                 Date="{Binding FechaInicio}"
-                MinimumDate="2015,01,01"
+                MaximumDate="2022,06,05"
+                MinimumDate="2021,01,01"
                 TextColor="Black" />
             <Label
                 FontSize="Body"
@@ -26,6 +27,7 @@
                 Margin="10"
                 Date="{Binding Fechafinal}"
                 MinimumDate="{Binding FechaInicio}"
+                MaximumDate="2022,06,05"
                 TextColor="Black" />
             <Button
                 Margin="10"

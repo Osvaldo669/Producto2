@@ -66,11 +66,12 @@
                                 HorizontalOptions="Fill"
                                 Text="{Binding cantidad}"
                                 TextColor="Black" />
+                            
                             <Label
                                 Grid.Column="3"
                                 FontSize="12"
                                 HorizontalOptions="Fill"
-                                Text="{Binding producto.Producto_id}"
+                                Text="{Binding producto.Nombre}"
                                 TextColor="Black" />
                             <Label
                                 Grid.Column="4"

@@ -42,9 +42,16 @@ namespace AppMovil.Views.Menu
                     new MenuFlyoutPageFlyoutMenuItem { Id = 5, Title = "Medicamentos Presentacion", TargetType=typeof(MedicamentosPresentacion) },
                     new MenuFlyoutPageFlyoutMenuItem { Id = 6, Title = "Medicamentos Caducidad", TargetType=typeof(MedicamentosCaducidad) },
                     new MenuFlyoutPageFlyoutMenuItem { Id = 7, Title = "Venta Medicamento", TargetType=typeof(VentaMedicamentos) },
-                    new MenuFlyoutPageFlyoutMenuItem { Id = 8, Title = "Historial", TargetType=typeof(Historial) },
-                    new MenuFlyoutPageFlyoutMenuItem { Id = 9, Title = "Publicidad", TargetType=typeof(Publicidad) },
+                    new MenuFlyoutPageFlyoutMenuItem { Id = 8, Title = "Publicidad", TargetType=typeof(Publicidad) },
                 });
+
+
+                if ((bool)Application.Current.Properties["Tipo"])
+                {
+                    MenuItems.Add(
+                        new MenuFlyoutPageFlyoutMenuItem { Id = 8, Title = "Historial", TargetType = typeof(Historial) }
+                        ) ;
+                }
             }
 
             #region INotifyPropertyChanged Implementation

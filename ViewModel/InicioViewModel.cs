@@ -66,6 +66,9 @@ namespace ViewModel
                 responseMessage.EnsureSuccessStatusCode();
                 if (responseMessage.StatusCode == System.Net.HttpStatusCode.OK)
                 {
+                    var content = await responseMessage.Content.ReadAsStringAsync();
+                    Usuarios user = JsonConvert.DeserializeObject<Usuarios>(content);
+                    Application.Current.Properties["Tipo"] = user.Estado;
                     var page = (Page)Activator.CreateInstance(Tpage);
                     await Navigation.PushAsync(page);
                 }else

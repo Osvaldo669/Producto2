@@ -13,6 +13,7 @@ namespace AppMovil
             InitializeComponent();
 
             MainPage = new NavigationPage(new InicioSesion());
+            Properties["Tipo"] = false;
         }
 
         protected override void OnStart()
